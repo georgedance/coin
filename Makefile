@@ -5,7 +5,8 @@ ELF = bin/${NAME}.elf
 BIN = bin/${NAME}
 OP = -O0
 ARCH = 64
-FLAGS = ${OP} -m${ARCH} -no-pie -nostdlib
+FLAGS = --${ARCH} -g
+LINKS = ${OP} -m${ARCH} -no-pie -nostdlib
 
 all: folders assemble link
 	
@@ -13,10 +14,10 @@ folders:
 	@mkdir -p bin build
 
 assemble:
-	as ${ASM} --${ARCH} -o ${OBJ}
+	as ${ASM} ${FLAGS} -o ${OBJ}
 
 link:
-	gcc ${OBJ} ${FLAGS} -o ${ELF}
+	gcc ${OBJ} ${LINKS} -o ${ELF}
 
 strip:
 	strip -s ${ELF}
