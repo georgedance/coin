@@ -1,6 +1,10 @@
 # coin
 ### a coin flipper written in assembly for fun
 
+## summary
+coin is a program written for linux using intel x86 assembly.
+coin is assembled with the GNU assembler.
+
 ## downloading
 to download it, select the zip option, or to download using git
 ```sh
